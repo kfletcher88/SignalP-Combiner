@@ -43,7 +43,6 @@ def main():
               if match and not found_match:
                 found_match = True
                 first_motif_position = match.start()
-#                Ematch = re.search(r'EER', seq[first_motif_position:first_motif_position+EERdist])
                 Ematch = re.search(r'(D|E)(D|E)(R|K)', seq[first_motif_position:first_motif_position+EERdist])
                 if Ematch:
                   print(header + " " + match.group(1) + "XLR at " + str(match.start()+SPind) + "; " + Ematch.group() + " at " + str(first_motif_position+Ematch.start()))
@@ -56,10 +55,8 @@ def main():
                 found_match = True
                 first_motif_position = match.start()
                 Ematch = re.search(r'(D|E)(D|E)(R|K)', seq[first_motif_position:first_motif_position+EERdist])
-#                Ematch = re.search(r'EER', seq[first_motif_position:first_motif_position+EERdist])
                 if Ematch:
                   print(header + " RXL" + match.group(1) + " at " + str(match.start()+SPind) + "; " + Ematch.group() + " at " + str(first_motif_position+Ematch.start()))
-#                  print(header + " RXL" + match.group(1) + " at " + str(match.start()+SPind) + "; EER at " + str(first_motif_position+Ematch.start()))
                   print(seq)
                 else:
                   print(header + " RXL" + match.group(1) + " at " + str(match.start()+SPind))
@@ -84,7 +81,6 @@ def main():
           header = ">" + ORFID + " Cleaved at " + SP +";"
           dict[ORFID] = ORFID
           RXLRsearch()
-#  print(len(dict))
   if args.SignalP5 is not None:
     ORFID=[]
     SP=[]
@@ -100,7 +96,6 @@ def main():
             header = ">" + ORFID + " Cleaved at " + SP +";"
             dict[ORFID]=ORFID
             RXLRsearch()
-#  print(len(dict))
   if args.SignalP4 is not None:
     ORFID=[]
     SP=[]
