@@ -20,13 +20,6 @@ def main():
   parser._action_groups.append(optional)
   args = parser.parse_args()
 
-#if len(sys.argv) < 5:
-#    print("Please input four arguments:")
-#    print("Fasta file where to find the motif\nSignalP 6 results\nDistance from cleavage site to RXLR\nDistance from RXLR to EER")
-#    print("Usage:")
-#    print("python SP6-RXLR-EER_Finder.py <Fasta File> <SP6 file> <RXLR distance> <EER distance>")
-#    sys.exit()
-
   fasta = args.fasta
   sequences_object = FastaFile(fasta)
   RXLRdist = int(args.RXLRdist)
