@@ -31,7 +31,7 @@ def main():
               match = re.search(r'R.LR', seq[SPind:SPind+RXLRdist])
               if match and not found_match:
                 found_match = True
-                first_motif_position = match.start()
+                first_motif_position = match.start()+SPind
                 Ematch = re.search(r'EER', seq[first_motif_position:first_motif_position+EERdist])
                 if Ematch:
                   print(header + " RXLR at " + str(match.start()+SPind) + "; EER at " + str(first_motif_position+Ematch.start()))
@@ -42,7 +42,7 @@ def main():
               match = re.search(r'(Q|H|G).LR', seq[SPind:SPind+RXLRdist])
               if match and not found_match:
                 found_match = True
-                first_motif_position = match.start()
+                first_motif_position = match.start()+SPind
                 Ematch = re.search(r'(D|E)(D|E)(R|K)', seq[first_motif_position:first_motif_position+EERdist])
                 if Ematch:
                   print(header + " " + match.group(1) + "XLR at " + str(match.start()+SPind) + "; " + Ematch.group() + " at " + str(first_motif_position+Ematch.start()))
@@ -53,7 +53,7 @@ def main():
               match = re.search(r'R.L(Q|H|G)', seq[SPind:SPind+RXLRdist])
               if match and not found_match:
                 found_match = True
-                first_motif_position = match.start()
+                first_motif_position = match.start()+SPind
                 Ematch = re.search(r'(D|E)(D|E)(R|K)', seq[first_motif_position:first_motif_position+EERdist])
                 if Ematch:
                   print(header + " RXL" + match.group(1) + " at " + str(match.start()+SPind) + "; " + Ematch.group() + " at " + str(first_motif_position+Ematch.start()))
